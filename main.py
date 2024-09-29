@@ -6,10 +6,10 @@ from database import init_db, add_invoice, get_all_invoices
 
 def main():
     init_db()
-    
+    file_name = ''
     directory = 'invoices'
-    
-    for file_name in os.listdir(directory):
+    current_directory = os.getcwd()
+    for item in os.listdir(current_directory):
         if file_name.endswith('.pdf'):
             file_path = os.path.join(directory, file_name)
             text = extract_text_from_pdf(file_path)
